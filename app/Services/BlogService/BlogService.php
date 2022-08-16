@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class BlogService implements BlogServiceInterface{
 
 	public function create(Request $request){
-		dd($request);
+		return $request->title;
 	}
 }
