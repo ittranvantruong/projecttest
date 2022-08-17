@@ -42,25 +42,19 @@ abstract class EloquentRepository implements EloquentRepositoryInterface
 
         return $this->model->all();
     }
-
-    /**
-     * Get one
-     * @param $id
-     * @return mixed
-     */
-    public function find($id)
+    
+    public function find($id, array $relations = [])
     {
-        $result = $this->model->find($id);
+        $instance = $this->model->with($relations)->find($id);
 
-        return $result;
+        return $instance;
     }
-
     /**
      * Create
      * @param array $attributes
      * @return mixed
      */
-    public function create(array $attributes)
+    public function store(array $attributes)
     {
         return $this->model->create($attributes);
     }
@@ -71,7 +65,7 @@ abstract class EloquentRepository implements EloquentRepositoryInterface
      * @param array $attributes
      * @return bool|mixed
      */
-    public function update(array $attributes, $id)
+    public function update($id, array $attributes)
     {
         $result = $this->find($id);
         if ($result) {

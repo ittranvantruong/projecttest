@@ -21,5 +21,16 @@ Route::get('/', function () {
 
 Route::get('/hello', [TestDemoController::class, 'index']);
 
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/show/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
 Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
 Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
+Route::put('/blog/update', [BlogController::class, 'update'])->name('blog.update');
+Route::delete('/blog/delete', [BlogController::class, 'delete'])->name('blog.delete');
+
+Route::fallback(function(){
+    return response()->json([
+        'status' => 404,
+        'message' => 'Không tìm thấy đường dẫn này'], 404);
+});

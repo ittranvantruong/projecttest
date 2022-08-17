@@ -13,13 +13,27 @@ class BlogService implements BlogServiceInterface{
 		$this->blogRepository = $blogRepository;
 	}
 
-	public function create(Request $request){
+	public function store(Request $request){
 		
 		$data = $request->only('title', 'content');
 		
-		$create = $this->blogRepository->create($data);
+		$create = $this->blogRepository->store($data);
 
-		dd($create);
+		return $create;
+	}
+
+	public function update(Request $request){
+		
+		$data = $request->only('title', 'content');
+		
+		return $this->blogRepository->update($request->id, $data);
 
 	}
+
+	public function delete(Request $request){
+		
+		return $this->blogRepository->delete(23);
+
+	}
+
 }

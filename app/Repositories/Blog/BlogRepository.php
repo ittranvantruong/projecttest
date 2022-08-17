@@ -17,8 +17,4 @@ class BlogRepository extends EloquentRepository implements BlogRepositoryInterfa
         return Blog::class;
     }
 
-    // public function getAll(){
-    	
-    // }
-
 }
