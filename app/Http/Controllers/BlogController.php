@@ -8,17 +8,18 @@ use App\Services\BlogService\BlogServiceInterface;
 class BlogController extends Controller
 {
     //
-	protected $blogRepository;
+	protected $blogService;
 
-    public function __construct(BlogServiceInterface $blogRepository)
+    public function __construct(BlogServiceInterface $blogService)
     {
-        $this->blogRepository = $blogRepository;
+        $this->blogService = $blogService;
     }
+    
     public function create(){
     	return view('public.index');
     }
 
     public function store(Request $request){
-    	return $this->blogRepository->create($request);
+    	return $this->blogService->create($request);
     }
 }
