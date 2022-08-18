@@ -29,6 +29,7 @@ abstract class EloquentRepository implements EloquentRepositoryInterface
      */
     public function setModel()
     {
+        //other -> new Model
         $this->model = app()->make(
             $this->getModel()
         );

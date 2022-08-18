@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Services\BlogService\BlogServiceInterface;
 use App\Repositories\Blog\BlogRepositoryInterface;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
