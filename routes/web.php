@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TestDemoController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +20,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello', [TestDemoController::class, 'index']);
+
+
+Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
 Route::group(['middleware' => 'auth', 'prefix' => '/blog', 'as' => 'blog.'], function(){
 	Route::get('/', [BlogController::class, 'index'])->name('blog');
