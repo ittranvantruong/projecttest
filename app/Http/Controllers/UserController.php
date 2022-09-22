@@ -10,7 +10,6 @@ class UserController extends Controller
     //
     public function index(UsersDataTable $dataTable)
     {
-        // dd($dataTable->render('user.index'));
         return $dataTable->render('user.index');
     }
 

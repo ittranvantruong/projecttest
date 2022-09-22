@@ -57,12 +57,18 @@ class UsersDataTable extends DataTable
                             var r = $('#users-table tfoot tr');
 
                             $('#users-table thead').append(r);
-                            this.api().columns([1, 2, 3, 4, 5]).every(function () {
+                            this.api().columns([1]).every(function () {
                                 var column = this;
-                                var input = document.createElement(\"input\");
+                                var input = document.createElement(\"input\"), input2 = document.createElement(\"input\");
+                                input.name = 'ip1';
+                                input2.name = 'ip2';
                                 $(input).appendTo($(column.footer()).empty())
-                                .on('keyup', function () {
-                                    column.search($(this).val(), false, false, true).draw();
+                                .on('change', function () {
+                                    column.search($(this).val()+$(input2).val(), false, false, true).draw();
+                                });
+                                $(input2).appendTo($(column.footer()))
+                                .on('change', function () {
+                                    column.search($(input).val()+$(this).val(), false, false, true).draw();
                                 });
                             });
                         }",
