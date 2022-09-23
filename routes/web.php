@@ -24,15 +24,20 @@ Route::get('/', function () {
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
 
-Route::group(['middleware' => 'auth', 'prefix' => '/blog', 'as' => 'blog.'], function(){
-	Route::get('/', [BlogController::class, 'index'])->name('blog');
-	Route::get('/show/{id}', [BlogController::class, 'show'])->name('show');
-	Route::get('/edit/{id}', [BlogController::class, 'edit'])->name('edit');
-	Route::get('/create', [BlogController::class, 'create'])->name('create');
-	Route::post('/store', [BlogController::class, 'store'])->name('store');
-	Route::put('/update', [BlogController::class, 'update'])->name('update');
-	Route::delete('/delete', [BlogController::class, 'delete'])->name('delete');
-});
+Route::get('/province', [TestDemoController::class, 'getProvince']);
+
+Route::get('/district', [TestDemoController::class, 'getDistrict']);
+Route::get('/getdb', [TestDemoController::class, 'getDB']);
+
+
+
+Route::get('/blog', [BlogController::class, 'index'])->name('blog');
+Route::get('/blog/show/{id}', [BlogController::class, 'show'])->name('blog.show');
+Route::get('/blog/edit/{id}', [BlogController::class, 'edit'])->name('blog.edit');
+Route::get('/blog/create', [BlogController::class, 'create'])->name('blog.create');
+Route::post('/blog/store', [BlogController::class, 'store'])->name('blog.store');
+Route::put('/blog/update', [BlogController::class, 'update'])->name('blog.update');
+Route::delete('/blog/delete', [BlogController::class, 'delete'])->name('blog.delete');
 
 Route::fallback(function(){
     return response()->json([
