@@ -13,4 +13,10 @@ class UserController extends Controller
         return $dataTable->render('user.index');
     }
 
+    public function create(){
+    	return view('user.create')->with('data', [
+    		'alert', 'danger'
+    	]);
+    }
+
 }

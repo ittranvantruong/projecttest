@@ -21,8 +21,10 @@ Route::get('/', function () {
 });
 
 
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 
 Route::get('/user', [UserController::class, 'index'])->name('user.index');
+
 
 Route::get('/province', [TestDemoController::class, 'getProvince']);
 
