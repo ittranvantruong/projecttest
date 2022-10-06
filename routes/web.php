@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestDemoController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
@@ -16,9 +17,7 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
