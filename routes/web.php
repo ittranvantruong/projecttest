@@ -19,6 +19,8 @@ use App\Http\Controllers\UserController;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/create-queue', [HomeController::class, 'createQueue']);
+
 
 Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
 
