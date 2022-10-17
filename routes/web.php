@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TestDemoController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,10 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/danh-muc', [CategoryController::class, 'index']);
+
 Route::get('/', [HomeController::class, 'index']);
+Route::post('/', [HomeController::class, 'index']);
 
 Route::get('/create-queue', [HomeController::class, 'createQueue']);
 
