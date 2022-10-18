@@ -6,7 +6,7 @@
 <body>
 	{{ $slot }}
 <x-partials.footer />
-
+@stack('scripts')
 </body>
 
 </html>

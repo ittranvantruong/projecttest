@@ -20,4 +20,8 @@ class Category extends Model
     public function tree(){
         return $this->hasMany(Category::class, 'parent_id', 'id')->with('tree');
     }
+
+    public function parents(){
+        return $this->belongsTo(Category::class, 'parent_id', 'id')->with('parents');
+    }
 }

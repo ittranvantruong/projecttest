@@ -19,6 +19,7 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/danh-muc', [CategoryController::class, 'index']);
+Route::get('/get-danh-muc', [CategoryController::class, 'getArrayData'])->name('cat.getArray');
 
 Route::get('/', [HomeController::class, 'index']);
 Route::post('/', [HomeController::class, 'index']);
